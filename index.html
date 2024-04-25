@@ -27,17 +27,33 @@
     <header class="mb-16">
         <!------------navbar start from here --------->
         <div class="container mx-auto bg-yellow-50">
-            <div class="pt-7 flex items-center justify-between">
-                <div class="ps-36">
-                    <img src="icons/Logo.png" alt="My Logo" width="290" height="40">
+            <div class="pt-7 flex items-center justify-between relative">
+                <div class="lg:ps-36 pl-5 text-left">
+                    <img src="icons/Logo.png" class="lg:w-[290px] md:lg:h-[40px] w-[100px]" alt="My Logo">
                 </div>
 
-                <div class="navbar-menu pe-28 font-bold space-x-11">
-                    <a href="#">Home</a>
-                    <a href="#">Product</a>
-                    <a href="#">About us</a>
-                    <a href="#">Contact us</a>
-                    <a href="#"><i class="fa fa-cog"></i></a>
+                <div id="navbar-menu"
+                    class="lg:pe-28 pe-5 lg:bg-transparent top-[80px] hidden font-bold bg-yellow-300 p-5 w-[100%] space-x-11">
+                    <ul class="navbar-menu flex flex-col justify-end lg:flex-row lg:gap-8 gap-2 ">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Product</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#"><i class="fa fa-cog"></i></a></li>
+
+                    </ul>
+                </div>
+                <div class="p-5 lg:hidden">
+                    <svg id="navbar-btn" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    <svg id="navbar-cancel" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+
                 </div>
             </div>
         </div>
@@ -252,7 +268,25 @@
         <h2 class="text-center font-bold">Sarowar Jahan Malek <br> 2024</h2>
 
     </footer>
+    <script>
+        navBtn = document.getElementById("navbar-btn");
+        navMenu = document.getElementById("navbar-menu");
+        navCancel = document.getElementById("navbar-cancel");
+        navBtn.addEventListener("click", () => {
+            navMenu.classList.remove("hidden");
+            navMenu.classList.add("absolute");
+            navBtn.classList.add("hidden");
+            navCancel.classList.remove("hidden")
 
+        })
+        navCancel.addEventListener("click", () => {
+            navMenu.classList.add("hidden");
+            navMenu.classList.remove("absolute");
+            navBtn.classList.remove("hidden");
+            navCancel.classList.add("hidden")
+
+        })
+    </script>
 </body>
 
 </html>
